@@ -116,7 +116,55 @@ POST /predict
   "interpretation": "LOW RISK"
 }
 ```
+---
 
+## 🌍 Live API
+
+The model is deployed and publicly available via Render:
+
+👉 https://pilot-hypoxia-detection-using.onrender.com/docs
+
+You can test the model directly in the interactive Swagger UI.
+
+---
+
+## 🧪 Example (cURL)
+
+```bash
+curl -X 'POST' \
+  'https://pilot-hypoxia-detection-using.onrender.com/predict' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "HR": 110,
+    "RESP": 30,
+    "spo2_rolling": 94,
+    "hr_rolling": 105,
+    "spo2_drop": -2,
+    "hr_change": 5
+  }'
+
+---
+⚡ System Architecture
+Raw physiological signals are processed and transformed into temporal features
+Features are passed to a trained Random Forest model
+Model outputs probability of hypoxia risk
+API returns:
+probability score
+binary risk classification
+human-readable interpretation
+
+---
+⚠️ Disclaimer
+
+This project is for research and educational purposes only.
+It is not intended for medical or aviation decision-making without proper validation.
+---
+📈 Next Steps
+Integration with real-world datasets (e.g., NASA aviation data)
+Model validation on larger cohorts
+Deployment of real-time monitoring system
+Explainable AI (SHAP / feature importance visualization)
+---
 
 ## 📌 Author
 
