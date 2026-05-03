@@ -4,7 +4,7 @@
 
 This project develops a machine learning model to detect hypoxia risk in pilots based on physiological signals such as oxygen saturation (SpO₂), heart rate, and respiration.
 
-The goal is to build a safety-oriented system that prioritizes early detection of oxygen deprivation.
+The goal is to build a safety-oriented system that prioritizes early detection of oxygen deprivation in aviation environments.
 
 ---
 
@@ -18,12 +18,12 @@ The goal is to build a safety-oriented system that prioritizes early detection o
 
 ## ⚙️ Feature Engineering
 
-Engineered temporal features to capture physiological dynamics:
+Temporal features were engineered to capture physiological dynamics:
 
 * Rolling averages (SpO₂, HR)
 * Signal changes (ΔSpO₂, ΔHR)
 
-These features allow the model to detect trends rather than single measurements.
+These features allow the model to detect trends rather than relying on single-point measurements.
 
 ---
 
@@ -53,7 +53,7 @@ These features allow the model to detect trends rather than single measurements.
 * Recall (risk): **1.00**
 * Precision: ~0.50
 
-👉 Prioritized recall to avoid missing hypoxia events in a safety-critical scenario.
+👉 The model is optimized for **high recall**, prioritizing detection of hypoxia events in a safety-critical scenario.
 
 ---
 
@@ -67,9 +67,10 @@ These features allow the model to detect trends rather than single measurements.
 
 ## 🚀 Future Improvements
 
-* Integrate NASA flight crew datasets
-* Real-time monitoring system (API)
+* Integration of NASA flight crew physiological datasets
+* Real-time monitoring system
 * Visualization dashboard
+* Explainable AI (e.g., SHAP)
 
 ---
 
@@ -78,23 +79,29 @@ These features allow the model to detect trends rather than single measurements.
 * Python
 * Pandas
 * Scikit-learn
+* FastAPI
 
 ---
+
 ## 🌐 API
 
 The model is exposed via a FastAPI service.
 
-### Run locally:
+### ▶ Run locally
 
 ```bash
 uvicorn api:app --reload
 ```
 
-### Endpoint:
+---
+
+### 📍 Endpoint
 
 POST /predict
 
-### Example request:
+---
+
+### 🧪 Example request
 
 ```json
 {
@@ -107,7 +114,9 @@ POST /predict
 }
 ```
 
-### Example response:
+---
+
+### 📤 Example response
 
 ```json
 {
@@ -116,6 +125,7 @@ POST /predict
   "interpretation": "LOW RISK"
 }
 ```
+
 ---
 
 ## 🌍 Live API
@@ -142,38 +152,41 @@ curl -X 'POST' \
     "spo2_drop": -2,
     "hr_change": 5
   }'
+```
 
 ---
 
+## ⚙️ System Architecture
 
-⚡ System Architecture
-Raw physiological signals are processed and transformed into temporal features
-Features are passed to a trained Random Forest model
-Model outputs probability of hypoxia risk
-API returns:
-probability score
-binary risk classification
-human-readable interpretation
+1. Raw physiological signals are processed and transformed into temporal features
+2. Features are passed to a trained Random Forest model
+3. The model outputs a probability of hypoxia risk
+4. The API returns:
+
+   * probability score
+   * binary classification
+   * human-readable interpretation
 
 ---
 
-
-⚠️ Disclaimer
+## ⚠️ Disclaimer
 
 This project is for research and educational purposes only.
 It is not intended for medical or aviation decision-making without proper validation.
----
-📈 Next Steps
-Integration with real-world datasets (e.g., NASA aviation data)
-Model validation on larger cohorts
-Deployment of real-time monitoring system
-Explainable AI (SHAP / feature importance visualization)
-
 
 ---
 
-## 📌 Author
+## 📈 Next Steps
 
-Bioinformatics & Data Science student focusing on ML in healthcare and aviation
+* Integration with real-world datasets (e.g., NASA aviation data)
+* Model validation on larger datasets
+* Deployment of real-time monitoring systems
+* Explainability and model transparency
 
-Agata Gabara
+---
+
+## 👩‍💻 Author
+
+**Agata Gabara**
+Bioinformatics & Data Science student
+Focused on Machine Learning in healthcare and aviation
