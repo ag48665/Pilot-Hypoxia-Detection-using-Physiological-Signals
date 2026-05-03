@@ -84,4 +84,5 @@ These features allow the model to detect trends rather than single measurements.
 ## 📌 Author
 
 Bioinformatics & Data Science student focusing on ML in healthcare and aviation
+
 Agata Gabara
