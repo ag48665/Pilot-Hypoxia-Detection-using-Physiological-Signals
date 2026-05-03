@@ -80,6 +80,43 @@ These features allow the model to detect trends rather than single measurements.
 * Scikit-learn
 
 ---
+## 🌐 API
+
+The model is exposed via a FastAPI service.
+
+### Run locally:
+
+```bash
+uvicorn api:app --reload
+```
+
+### Endpoint:
+
+POST /predict
+
+### Example request:
+
+```json
+{
+  "HR": 94,
+  "RESP": 26,
+  "spo2_rolling": 97,
+  "hr_rolling": 93.6,
+  "spo2_drop": 0,
+  "hr_change": 0
+}
+```
+
+### Example response:
+
+```json
+{
+  "risk_probability": 0.0,
+  "risk_label": 0,
+  "interpretation": "LOW RISK"
+}
+```
+
 
 ## 📌 Author
 
