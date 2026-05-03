@@ -144,6 +144,8 @@ curl -X 'POST' \
   }'
 
 ---
+
+
 ⚡ System Architecture
 Raw physiological signals are processed and transformed into temporal features
 Features are passed to a trained Random Forest model
@@ -154,6 +156,8 @@ binary risk classification
 human-readable interpretation
 
 ---
+
+
 ⚠️ Disclaimer
 
 This project is for research and educational purposes only.
@@ -164,6 +168,8 @@ Integration with real-world datasets (e.g., NASA aviation data)
 Model validation on larger cohorts
 Deployment of real-time monitoring system
 Explainable AI (SHAP / feature importance visualization)
+
+
 ---
 
 ## 📌 Author
