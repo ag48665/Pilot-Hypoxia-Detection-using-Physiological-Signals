@@ -188,5 +188,6 @@ It is not intended for medical or aviation decision-making without proper valida
 ## 👩‍💻 Author
 
 **Agata Gabara**
+
 Bioinformatics & Data Science student
 Focused on Machine Learning in healthcare and aviation
