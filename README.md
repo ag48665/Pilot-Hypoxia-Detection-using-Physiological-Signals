@@ -7,6 +7,37 @@ This project presents a machine learning system for detecting hypoxia risk based
 The goal is to support safety-critical environments (e.g., aviation) by enabling early detection of oxygen deprivation patterns.
 
 ---
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-API-green)
+![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-red)
+
+---
+
+## 🌍 Live Demo
+
+Try the API here:
+
+👉 https://pilot-hypoxia-detection-using.onrender.com/docs
+
+---
+
+## 🎯 Project Value
+
+Hypoxia can significantly impair cognitive function and reaction time, which is critical in safety-sensitive environments such as aviation.
+
+This project demonstrates how physiological signals can be transformed into actionable risk predictions using machine learning and deployed as both an API and an interactive dashboard.
+
+---
+## ✅ What I Built
+
+* End-to-end machine learning pipeline
+* Feature extraction from physiological time-series signals
+* Random Forest classification model
+* FastAPI prediction API
+* Streamlit interactive dashboard
+* Deployment-ready project
+
+---
 
 ## 📊 Data
 
@@ -20,6 +51,8 @@ The model is trained on physiological signals from the BIDMC dataset (https://ph
 The data consists of time-series recordings collected from clinical monitoring systems.
 
 The dataset was processed into fixed-size windows to extract statistical features.
+
+The model was trained on 108 samples with 8 engineered features.
 
 ---
 
@@ -69,9 +102,10 @@ The model predicts the probability of hypoxia based on physiological signal patt
 
 ## 📈 Results
 
-* Accuracy: ~0.95
+* Accuracy: ~0.95 (on training/validation split)
 
 The model demonstrates strong performance in distinguishing normal vs hypoxia conditions based on statistical signal features.
+
 
 ---
 
