@@ -163,6 +163,15 @@ python -m uvicorn api:app --host 127.0.0.1 --port 8001
 
 ---
 
+## 🌍 Live Demo
+
+You can test the model via interactive API docs:
+
+👉 https://pilot-hypoxia-detection-using.onrender.com/docs
+
+---
+
+
 ## ⚙️ System Architecture
 
 1. Raw physiological signals are collected from monitoring systems
