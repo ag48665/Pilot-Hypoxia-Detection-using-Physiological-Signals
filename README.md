@@ -2,28 +2,46 @@
 
 ## 📌 Overview
 
-This project develops a machine learning model to detect hypoxia risk in pilots based on physiological signals such as oxygen saturation (SpO₂), heart rate, and respiration.
+This project presents a machine learning system for detecting hypoxia risk based on physiological signals such as respiration, pulse, heart rate, and oxygen saturation.
 
-The goal is to build a safety-oriented system that prioritizes early detection of oxygen deprivation in aviation environments.
+The goal is to support safety-critical environments (e.g., aviation) by enabling early detection of oxygen deprivation patterns.
 
 ---
 
 ## 📊 Data
 
-* Physiological signals dataset (SpO₂, HR, RESP)
-* Time-series measurements
-* Preprocessed to remove missing values and normalize column names
+The model is trained on physiological signals from the BIDMC dataset:
+
+* SpO₂ (oxygen saturation)
+* Heart rate (HR)
+* Respiration (RESP)
+* Pulse
+
+The data consists of time-series recordings collected from clinical monitoring systems.
+
+The dataset was processed into fixed-size windows to extract statistical features.
 
 ---
 
 ## ⚙️ Feature Engineering
 
-Temporal features were engineered to capture physiological dynamics:
+Statistical features were extracted from physiological signals using fixed-size time windows:
 
-* Rolling averages (SpO₂, HR)
-* Signal changes (ΔSpO₂, ΔHR)
+**Respiration:**
+* mean
+* standard deviation
+* minimum
+* maximum
 
-These features allow the model to detect trends rather than relying on single-point measurements.
+**Pulse:**
+* mean
+* standard deviation
+
+**Heart Rate:**
+* mean
+* standard deviation
+
+These features capture variability and distribution patterns in physiological signals rather than relying on single-point measurements.
 
 ---
 
@@ -32,54 +50,53 @@ These features allow the model to detect trends rather than relying on single-po
 * Algorithm: Random Forest Classifier
 * Features:
 
-  * HR
-  * RESP
-  * SpO₂ rolling average
-  * HR rolling average
-  * SpO₂ change
-  * HR change
+  * resp_mean
+  * resp_std
+  * resp_min
+  * resp_max
+  * pulse_mean
+  * pulse_std
+  * hr_mean
+  * hr_std
+
+The model predicts the probability of hypoxia based on physiological signal patterns.
 
 ---
 
 ## 📈 Results
 
-### Default threshold (0.5)
+* Accuracy: ~0.95
 
-* Recall (risk): ~0.78
-* Precision: ~0.70
-
-### Optimized threshold (0.1)
-
-* Recall (risk): **1.00**
-* Precision: ~0.50
-
-👉 The model is optimized for **high recall**, prioritizing detection of hypoxia events in a safety-critical scenario.
+The model demonstrates strong performance in distinguishing normal vs hypoxia conditions based on statistical signal features.
 
 ---
 
 ## 🧠 Key Insights
 
-* SpO₂ trends (rolling average) are the strongest predictor of hypoxia risk
-* Respiratory rate significantly contributes to detection
-* Single-point measurements are less informative than temporal patterns
+* Variability in respiration is a strong indicator of physiological state
+* Pulse and heart rate patterns contribute significantly to prediction
+* Aggregated statistical features outperform raw signal values
 
 ---
 
 ## 🚀 Future Improvements
 
-* Integration of NASA flight crew physiological datasets
-* Real-time monitoring system
-* Visualization dashboard
-* Explainable AI (e.g., SHAP)
+* Integration of additional publicly available physiological datasets
+* Real-time monitoring system for continuous signal analysis
+* Visualization dashboard for physiological trends
+* Explainable AI techniques (e.g., SHAP) for model interpretability
+* Deployment as a scalable web service
 
 ---
 
 ## 🛠️ Tech Stack
 
 * Python
-* Pandas
+* NumPy
 * Scikit-learn
 * FastAPI
+* Uvicorn
+* WFDB
 
 ---
 
@@ -90,85 +107,52 @@ The model is exposed via a FastAPI service.
 ### ▶ Run locally
 
 ```bash
-uvicorn api:app --reload
-```
+python -m uvicorn api:app --host 127.0.0.1 --port 8001
 
 ---
 
-### 📍 Endpoint
+##  Endpoint
 
 POST /predict
 
 ---
 
-### 🧪 Example request
+## 🧪 Example request
 
-```json
 {
-  "HR": 94,
-  "RESP": 26,
-  "spo2_rolling": 97,
-  "hr_rolling": 93.6,
-  "spo2_drop": 0,
-  "hr_change": 0
+  "resp_mean": 18,
+  "resp_std": 2,
+  "resp_min": 14,
+  "resp_max": 22,
+  "pulse_mean": 75,
+  "pulse_std": 5,
+  "hr_mean": 78,
+  "hr_std": 6
 }
-```
 
 ---
 
-### 📤 Example response
-
-```json
+## Example response
 {
-  "risk_probability": 0.0,
-  "risk_label": 0,
-  "interpretation": "LOW RISK"
+  "prediction": 0,
+  "probability": 0.17,
+  "interpretation": "NORMAL"
 }
-```
+
 
 ---
-
-## 🌍 Live API
-
-The model is deployed and publicly available via Render:
-
-👉 https://pilot-hypoxia-detection-using.onrender.com/docs
-
-You can test the model directly in the interactive Swagger UI.
-
----
-
-## 🧪 Example (cURL)
-
-```bash
-curl -X 'POST' \
-  'https://pilot-hypoxia-detection-using.onrender.com/predict' \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "HR": 110,
-    "RESP": 30,
-    "spo2_rolling": 94,
-    "hr_rolling": 105,
-    "spo2_drop": -2,
-    "hr_change": 5
-  }'
-```
-
----
-
 ## ⚙️ System Architecture
 
-1. Raw physiological signals are processed and transformed into temporal features
-2. Features are passed to a trained Random Forest model
-3. The model outputs a probability of hypoxia risk
-4. The API returns:
-
-   * probability score
-   * binary classification
-   * human-readable interpretation
+Raw physiological signals are collected from monitoring systems
+Signals are segmented into fixed-size windows
+Statistical features are extracted from each window
+Features are passed to a trained Random Forest model
+The model outputs:
+probability of hypoxia
+binary classification
+human-readable interpretation
 
 ---
-
 ## ⚠️ Disclaimer
 
 This project is for research and educational purposes only.
@@ -176,18 +160,27 @@ It is not intended for medical or aviation decision-making without proper valida
 
 ---
 
-## 📈 Next Steps
+## 📦 Model Versioning
 
-* Integration with real-world datasets (e.g., NASA aviation data)
-* Model validation on larger datasets
-* Deployment of real-time monitoring systems
-* Explainability and model transparency
+The model is trained on statistical features extracted from physiological signals.
+Ensure consistency between training features and API inputs.
 
 ---
 
 ## 👩‍💻 Author
 
-**Agata Gabara**
-
+Agata Gabara
 Bioinformatics & Data Science student
-Focused on Machine Learning in healthcare and aviation
+Focused on Machine Learning in healthcare and signal-based analysis
+
+---
+
+
+
+
+
+
+
+
+
+
