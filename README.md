@@ -195,4 +195,5 @@ Ensure consistency between training features and API inputs.
 
 **Agata Gabara**
 Bioinformatics & Data Science student
+
 Focused on Machine Learning in healthcare and signal-based analysis
