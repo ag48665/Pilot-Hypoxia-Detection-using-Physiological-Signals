@@ -10,7 +10,7 @@ The goal is to support safety-critical environments (e.g., aviation) by enabling
 
 ## 📊 Data
 
-The model is trained on physiological signals from the BIDMC dataset:
+The model is trained on physiological signals from the BIDMC dataset (https://physionet.org/content/bidmc/1.0.0/):
 
 * SpO₂ (oxygen saturation)
 * Heart rate (HR)
