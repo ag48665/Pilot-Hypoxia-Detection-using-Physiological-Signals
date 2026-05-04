@@ -1,4 +1,4 @@
-# 🧠 Pilot Hypoxia Detection using Physiological Signals
+# 🧠 Pilot Hypoxia Detection using Physiological Signals - End-to-end machine learning project for hypoxia risk detection using physiological signal features, with deployed API and interactive dashboard.
 
 ## 📌 Overview
 
