@@ -119,6 +119,18 @@ Run the API locally and open interactive docs:
 > Note: This works only when the server is running locally.
 
 ---
+## 💡 Live Example
+
+Example prediction from deployed API:
+
+```json
+{
+  "prediction": 0,
+  "probability": 0.17,
+  "interpretation": "NORMAL"
+}
+
+---
 
 ### ▶ Run locally
 
