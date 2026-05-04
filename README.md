@@ -187,8 +187,9 @@ You can test the model via interactive API docs:
 
 ### FastAPI Prediction Endpoint
 ![API Demo](images/input_form.jpg)
+
 ![API Demo](images/response_form.jpg)
-![API Demo](images/response_form1a.jpg)
+
 
 ### Streamlit Dashboard
 ![Streamlit Demo](images/streamlit.jpg)
