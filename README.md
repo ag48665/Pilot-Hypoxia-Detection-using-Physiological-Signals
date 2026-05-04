@@ -109,6 +109,16 @@ The model demonstrates strong performance in distinguishing normal vs hypoxia co
 The model is exposed via a FastAPI service.
 
 ---
+## 🌍 Live Demo
+
+Run the API locally and open interactive docs:
+
+👉 http://127.0.0.1:8001/docs
+
+> Note: This link works only when the API is running locally.
+
+---
+
 
 ### ▶ Run locally
 
