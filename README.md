@@ -183,6 +183,15 @@ You can test the model via interactive API docs:
 
 ---
 
+## 🖼️ Demo Screenshots
+
+### FastAPI Prediction Endpoint
+![API Demo](images/api_demo.png)
+
+### Streamlit Dashboard
+![Streamlit Demo](images/streamlit_demo.png)
+
+---
 
 ## ⚙️ System Architecture
 
