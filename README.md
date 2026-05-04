@@ -28,16 +28,19 @@ The dataset was processed into fixed-size windows to extract statistical feature
 Statistical features were extracted from physiological signals using fixed-size time windows:
 
 **Respiration:**
+
 * mean
 * standard deviation
 * minimum
 * maximum
 
 **Pulse:**
+
 * mean
 * standard deviation
 
 **Heart Rate:**
+
 * mean
 * standard deviation
 
@@ -48,16 +51,17 @@ These features capture variability and distribution patterns in physiological si
 ## 🤖 Model
 
 * Algorithm: Random Forest Classifier
-* Features:
 
-  * resp_mean
-  * resp_std
-  * resp_min
-  * resp_max
-  * pulse_mean
-  * pulse_std
-  * hr_mean
-  * hr_std
+**Features:**
+
+* resp_mean
+* resp_std
+* resp_min
+* resp_max
+* pulse_mean
+* pulse_std
+* hr_mean
+* hr_std
 
 The model predicts the probability of hypoxia based on physiological signal patterns.
 
@@ -104,21 +108,25 @@ The model demonstrates strong performance in distinguishing normal vs hypoxia co
 
 The model is exposed via a FastAPI service.
 
+---
+
 ### ▶ Run locally
 
 ```bash
 python -m uvicorn api:app --host 127.0.0.1 --port 8001
+```
 
 ---
 
-##  Endpoint
+### 📍 Endpoint
 
-POST /predict
+**POST** `/predict`
 
 ---
 
-## 🧪 Example request
+### 🧪 Example request
 
+```json
 {
   "resp_mean": 18,
   "resp_std": 2,
@@ -129,30 +137,36 @@ POST /predict
   "hr_mean": 78,
   "hr_std": 6
 }
+```
 
 ---
 
-## Example response
+### 📤 Example response
+
+```json
 {
   "prediction": 0,
   "probability": 0.17,
   "interpretation": "NORMAL"
 }
-
+```
 
 ---
+
 ## ⚙️ System Architecture
 
-Raw physiological signals are collected from monitoring systems
-Signals are segmented into fixed-size windows
-Statistical features are extracted from each window
-Features are passed to a trained Random Forest model
-The model outputs:
-probability of hypoxia
-binary classification
-human-readable interpretation
+1. Raw physiological signals are collected from monitoring systems
+2. Signals are segmented into fixed-size windows
+3. Statistical features are extracted from each window
+4. Features are passed to a trained Random Forest model
+5. The model outputs:
+
+   * probability of hypoxia
+   * binary classification
+   * human-readable interpretation
 
 ---
+
 ## ⚠️ Disclaimer
 
 This project is for research and educational purposes only.
@@ -169,18 +183,6 @@ Ensure consistency between training features and API inputs.
 
 ## 👩‍💻 Author
 
-Agata Gabara
+**Agata Gabara**
 Bioinformatics & Data Science student
 Focused on Machine Learning in healthcare and signal-based analysis
-
----
-
-
-
-
-
-
-
-
-
-
