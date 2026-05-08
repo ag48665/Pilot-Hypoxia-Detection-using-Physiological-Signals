@@ -56,6 +56,40 @@ The model was trained on 108 samples with 8 engineered features.
 
 ---
 
+## Potential Applications
+
+This project demonstrates how physiological signal analysis and machine learning can be used for early hypoxia risk detection in safety-critical environments.
+
+Potential real-world applications include:
+
+- **Aviation safety**
+  - Monitoring pilot physiological status during high-altitude flight, reduced cabin pressure, or oxygen system failure scenarios.
+  - Supporting early warning systems for hypoxia-related cognitive impairment.
+
+- **Critical care and hospital monitoring**
+  - Continuous monitoring of ICU or high-risk patients using physiological signal trends rather than isolated measurements.
+  - Early detection of respiratory deterioration before severe oxygen desaturation occurs.
+
+- **Wearable health technologies**
+  - Integration into smartwatches, biosensors, or portable monitoring devices for real-time physiological risk assessment.
+
+- **Remote patient monitoring**
+  - Detection of abnormal respiratory or cardiovascular patterns in telemedicine environments and home-care systems.
+
+- **Emergency and military medicine**
+  - Physiological monitoring in extreme environments such as high altitude, aerospace operations, or combat medicine.
+
+- **Clinical decision support research**
+  - Exploration of machine learning approaches for physiological state classification using non-invasive biosignals.
+
+- **Human performance monitoring**
+  - Tracking physiological fatigue and oxygen-related stress in high-performance or operational environments.
+
+This project also demonstrates how machine learning models can be transformed into deployable healthcare-oriented systems through APIs and interactive dashboards.
+
+Importantly, this project is intended for educational and research purposes only and is not validated for clinical or operational use.
+
+---
 ## ⚙️ Feature Engineering
 
 Statistical features were extracted from physiological signals using fixed-size time windows:
