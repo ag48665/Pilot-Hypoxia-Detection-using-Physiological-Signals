@@ -1,125 +1,127 @@
-# 🧠 Pilot Hypoxia Detection using Physiological Signals - End-to-end machine learning project for hypoxia risk detection using physiological signal features, with deployed API and interactive dashboard.
+# 🧠 Pilot Hypoxia Detection using Physiological Signals
 
-## 📌 Overview
+End-to-end machine learning project for hypoxia risk detection using physiological signal features, with a deployed FastAPI service and interactive Streamlit dashboard.
 
-This project presents a machine learning system for detecting hypoxia risk based on physiological signals such as respiration, pulse, heart rate, and oxygen saturation.
-
-The goal is to support safety-critical environments (e.g., aviation) by enabling early detection of oxygen deprivation patterns.
-
----
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-API-green)
 ![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-red)
 
 ---
 
+## Project Overview
+
+This project presents a machine learning system for detecting hypoxia risk using physiological signals including respiration, pulse, heart rate, and oxygen saturation.
+
+The goal is to demonstrate how physiological time-series data can be transformed into actionable risk predictions and deployed as a production-style machine learning application.
+
+The project combines:
+
+* Feature engineering from physiological signals
+* Machine learning classification
+* FastAPI deployment
+* Interactive Streamlit dashboard
+* End-to-end healthcare analytics workflow
+
+---
+
+## Project Highlights
+
+✔ End-to-end machine learning pipeline
+
+✔ Physiological signal feature engineering
+
+✔ Random Forest classification model
+
+✔ FastAPI deployment
+
+✔ Streamlit dashboard
+
+✔ REST API prediction endpoint
+
+✔ Healthcare analytics workflow
+
+✔ Deployment-ready architecture
+
+---
+
 ## 🌍 Live Demo
 
-Try the API here:
+Interactive API documentation:
 
 👉 https://pilot-hypoxia-detection-using.onrender.com/docs
 
 ---
 
-## 🎯 Project Value
+## Main Results
 
-Hypoxia can significantly impair cognitive function and reaction time, which is critical in safety-sensitive environments such as aviation.
-
-This project demonstrates how physiological signals can be transformed into actionable risk predictions using machine learning and deployed as both an API and an interactive dashboard.
-
----
-## ✅ What I Built
-
-* End-to-end machine learning pipeline
-* Feature extraction from physiological time-series signals
-* Random Forest classification model
-* FastAPI prediction API
-* Streamlit interactive dashboard
-* Deployment-ready project
+* Random Forest classifier achieved approximately **95% accuracy** on the available train/test split.
+* Physiological signal features successfully distinguished normal and hypoxia states.
+* Respiration variability emerged as an informative predictor.
+* End-to-end deployment completed using FastAPI and Streamlit.
+* The model is accessible through a production-style REST API.
 
 ---
 
-## 📊 Data
+## Dataset
 
-The model is trained on physiological signals from the BIDMC dataset (https://physionet.org/content/bidmc/1.0.0/):
+Source:
+
+BIDMC Physiological Signal Dataset
+
+https://physionet.org/content/bidmc/1.0.0/
+
+Signals used:
 
 * SpO₂ (oxygen saturation)
-* Heart rate (HR)
+* Heart Rate (HR)
 * Respiration (RESP)
 * Pulse
 
-The data consists of time-series recordings collected from clinical monitoring systems.
+The dataset consists of physiological time-series recordings collected from clinical monitoring systems.
 
-The dataset was processed into fixed-size windows to extract statistical features.
+The data were transformed into fixed-size windows for statistical feature extraction.
 
-The model was trained on 108 samples with 8 engineered features.
+### Dataset Summary
 
----
-
-## Potential Applications
-
-This project demonstrates how physiological signal analysis and machine learning can be used for early hypoxia risk detection in safety-critical environments.
-
-Potential real-world applications include:
-
-- **Aviation safety**
-  - Monitoring pilot physiological status during high-altitude flight, reduced cabin pressure, or oxygen system failure scenarios.
-  - Supporting early warning systems for hypoxia-related cognitive impairment.
-
-- **Critical care and hospital monitoring**
-  - Continuous monitoring of ICU or high-risk patients using physiological signal trends rather than isolated measurements.
-  - Early detection of respiratory deterioration before severe oxygen desaturation occurs.
-
-- **Wearable health technologies**
-  - Integration into smartwatches, biosensors, or portable monitoring devices for real-time physiological risk assessment.
-
-- **Remote patient monitoring**
-  - Detection of abnormal respiratory or cardiovascular patterns in telemedicine environments and home-care systems.
-
-- **Emergency and military medicine**
-  - Physiological monitoring in extreme environments such as high altitude, aerospace operations, or combat medicine.
-
-- **Clinical decision support research**
-  - Exploration of machine learning approaches for physiological state classification using non-invasive biosignals.
-
-- **Human performance monitoring**
-  - Tracking physiological fatigue and oxygen-related stress in high-performance or operational environments.
-
-This project also demonstrates how machine learning models can be transformed into deployable healthcare-oriented systems through APIs and interactive dashboards.
-
-Importantly, this project is intended for educational and research purposes only and is not validated for clinical or operational use.
-
----
-## ⚙️ Feature Engineering
-
-Statistical features were extracted from physiological signals using fixed-size time windows:
-
-**Respiration:**
-
-* mean
-* standard deviation
-* minimum
-* maximum
-
-**Pulse:**
-
-* mean
-* standard deviation
-
-**Heart Rate:**
-
-* mean
-* standard deviation
-
-These features capture variability and distribution patterns in physiological signals rather than relying on single-point measurements.
+* 108 samples
+* 8 engineered features
+* Binary classification task
+* Normal vs hypoxia state prediction
 
 ---
 
-## 🤖 Model
+## Feature Engineering
 
-* Algorithm: Random Forest Classifier
+Statistical features were extracted from physiological signals using fixed-size time windows.
 
-**Features:**
+### Respiration Features
+
+* Mean
+* Standard deviation
+* Minimum
+* Maximum
+
+### Pulse Features
+
+* Mean
+* Standard deviation
+
+### Heart Rate Features
+
+* Mean
+* Standard deviation
+
+These features capture physiological variability and signal dynamics rather than relying on single measurements.
+
+---
+
+## Machine Learning Model
+
+### Algorithm
+
+Random Forest Classifier
+
+### Input Features
 
 * resp_mean
 * resp_std
@@ -130,91 +132,79 @@ These features capture variability and distribution patterns in physiological si
 * hr_mean
 * hr_std
 
-The model predicts the probability of hypoxia based on physiological signal patterns.
+### Output
+
+The model predicts:
+
+* Hypoxia probability
+* Binary classification
+* Human-readable interpretation
 
 ---
 
-## 📈 Results
+## Potential Applications
 
-* Accuracy: ~0.95 (on training/validation split)
+This project demonstrates how physiological signal analysis and machine learning can support early risk detection in safety-critical environments.
 
-The model demonstrates strong performance in distinguishing normal vs hypoxia conditions based on statistical signal features.
+Potential applications include:
 
+### Aviation Safety
 
----
+* Pilot physiological monitoring
+* High-altitude risk assessment
+* Oxygen deprivation detection
 
-## 🧠 Key Insights
+### Healthcare Monitoring
 
-* Variability in respiration is a strong indicator of physiological state
-* Pulse and heart rate patterns contribute significantly to prediction
-* Aggregated statistical features outperform raw signal values
+* ICU patient monitoring
+* Early respiratory deterioration detection
+* Continuous physiological surveillance
 
----
+### Wearable Technologies
 
-## 🚀 Future Improvements
+* Smartwatch integration
+* Remote health monitoring
+* Real-time risk assessment
 
-* Integration of additional publicly available physiological datasets
-* Real-time monitoring system for continuous signal analysis
-* Visualization dashboard for physiological trends
-* Explainable AI techniques (e.g., SHAP) for model interpretability
-* Deployment as a scalable web service
+### Clinical Research
 
----
+* Physiological state classification
+* Predictive analytics development
+* Healthcare AI research
 
-## 🛠️ Tech Stack
+### Human Performance Monitoring
 
-* Python
-* NumPy
-* Scikit-learn
-* FastAPI
-* Uvicorn
-* WFDB
+* Fatigue monitoring
+* Stress assessment
+* Operational performance tracking
 
----
-
-## 🌐 API
-
-The model is exposed via a FastAPI service.
+This project is intended for research and educational purposes and is not validated for clinical or operational deployment.
 
 ---
 
-## 🌍 Live Demo
+## System Architecture
 
-Run the API locally and open interactive docs:
+1. Physiological signals are collected
+2. Signals are segmented into fixed-size windows
+3. Statistical features are extracted
+4. Features are passed to a trained Random Forest model
+5. The model generates:
 
-👉 http://127.0.0.1:8001/docs
-
-> Note: This works only when the server is running locally.
-
----
-## 💡 Live Example
-
-Example prediction from deployed API:
-
-```json
-{
-  "prediction": 0,
-  "probability": 0.17,
-  "interpretation": "NORMAL"
-}
-```
+   * Hypoxia probability
+   * Binary prediction
+   * Human-readable interpretation
 
 ---
 
-### ▶ Run locally
+## API
 
-```bash
-python -m uvicorn api:app --host 127.0.0.1 --port 8001
-```
----
+The trained model is deployed using FastAPI.
 
-### 📍 Endpoint
+### Endpoint
 
 **POST** `/predict`
 
----
-
-### 🧪 Example request
+### Example Request
 
 ```json
 {
@@ -229,9 +219,7 @@ python -m uvicorn api:app --host 127.0.0.1 --port 8001
 }
 ```
 
----
-
-### 📤 Example response
+### Example Response
 
 ```json
 {
@@ -243,58 +231,91 @@ python -m uvicorn api:app --host 127.0.0.1 --port 8001
 
 ---
 
-## 🌍 Live Demo
-
-You can test the model via interactive API docs:
-
-👉 https://pilot-hypoxia-detection-using.onrender.com/docs
-
----
-
-## 🖼️ Demo Screenshots
+## Demo Screenshots
 
 ### FastAPI Prediction Endpoint
+
 ![API Demo](images/input_form.jpg)
 
 ![API Demo](images/response_form.jpg)
 
-
 ### Streamlit Dashboard
+
 ![Streamlit Demo](images/streamlit.jpg)
 
 ---
 
-## ⚙️ System Architecture
+## Tech Stack
 
-1. Raw physiological signals are collected from monitoring systems
-2. Signals are segmented into fixed-size windows
-3. Statistical features are extracted from each window
-4. Features are passed to a trained Random Forest model
-5. The model outputs:
+### Machine Learning
 
-   * probability of hypoxia
-   * binary classification
-   * human-readable interpretation
+* Python
+* NumPy
+* Scikit-learn
 
----
+### Deployment
 
-## ⚠️ Disclaimer
+* FastAPI
+* Uvicorn
+* Streamlit
 
-This project is for research and educational purposes only.
-It is not intended for medical or aviation decision-making without proper validation.
+### Data Processing
 
----
-
-## 📦 Model Versioning
-
-The model is trained on statistical features extracted from physiological signals.
-Ensure consistency between training features and API inputs.
+* WFDB
+* Pandas
 
 ---
 
-## 👩‍💻 Author
+## How to Run
+
+### Start API Server
+
+```bash
+python -m uvicorn api:app --host 127.0.0.1 --port 8001
+```
+
+### Open API Documentation
+
+```text
+http://127.0.0.1:8001/docs
+```
+
+---
+
+## Future Improvements
+
+* Additional physiological datasets
+* Real-time monitoring pipeline
+* Continuous streaming predictions
+* Explainable AI (SHAP)
+* Advanced feature engineering
+* Model comparison and benchmarking
+* Cloud deployment automation
+
+---
+
+## Disclaimer
+
+This project is intended for research and educational purposes only.
+
+It is not validated for medical diagnosis, aviation operations, or clinical decision-making.
+
+---
+
+## Author
 
 **Agata Gabara**
-Bioinformatics & Data Science student
 
-Focused on Machine Learning in healthcare and signal-based analysis
+MSc Bioinformatics Student
+
+Interests:
+
+* Machine Learning for Healthcare
+* Clinical Informatics
+* Biomedical Signal Processing
+* Predictive Analytics
+* Data Science for Healthcare
+
+GitHub: https://github.com/ag48665
+
+LinkedIn: https://www.linkedin.com/in/agatha-gabara-06494a37/
